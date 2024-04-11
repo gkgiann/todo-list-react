@@ -1,0 +1,64 @@
+.task {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  background: var(--gray-500);
+  font-size: 1.4rem;
+  border: 1px solid var(--gray-400);
+  border-radius: 8px;
+  padding: 1.6rem;
+  gap: 1.2rem;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+
+    button {
+      cursor: pointer;
+      border: 0;
+      transition: 0.2s;
+      background: transparent;
+    }
+
+    .check {
+      color: var(--blue);
+
+      &:hover {
+        color: var(--blue-dark);
+      }
+    }
+
+    .checked {
+      color: var(--purple-dark);
+      background: transparent;
+
+      &:hover {
+        color: var(--purple);
+      }
+    }
+
+    .textThrough {
+      text-decoration-line: line-through;
+    }
+  }
+
+  .delete {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border: none;
+    color: var(--gray-300);
+    background: transparent;
+    transition: 0.2s;
+    border-radius: 4px;
+
+    &:hover {
+      color: var(--danger);
+      background: var(--gray-400);
+    }
+  }
+}

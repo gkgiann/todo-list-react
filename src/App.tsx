@@ -9,6 +9,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { Header } from "./components/Header/Header";
 import { Task } from "./components/Task/Task";
 import { HeaderTasksInfo } from "./components/HeaderTasksInfo/HeaderTasksInfo";
+import { ThreeDots } from "react-loader-spinner";
 
 interface Task {
   id: string;
@@ -25,6 +26,7 @@ interface TaskResponse {
 export function App() {
   const [newTaskText, setNewTaskText] = useState("");
   const [tasks, setTasks] = useState<Task[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios.get("http://localhost:3333/tasks").then((response) => {
@@ -41,6 +43,7 @@ export function App() {
 
       dataTasks.reverse();
       setTasks(dataTasks);
+      setLoading(false);
     });
   }, []);
 
@@ -110,6 +113,12 @@ export function App() {
 
         <div className={styles.tasksContainer}>
           <HeaderTasksInfo tasks={tasks} />
+
+          {loading && (
+            <div className={styles.loader}>
+              <ThreeDots width="100" color="#4ea8de" />
+            </div>
+          )}
 
           {tasks.length === 0 ? (
             <main className={styles.tasksMainEmpty}>

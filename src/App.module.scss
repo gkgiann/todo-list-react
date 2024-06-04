@@ -68,6 +68,12 @@
 .tasksContainer {
   margin-top: 5rem;
 
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .tasksMainEmpty {
     display: flex;
     flex-direction: column;
